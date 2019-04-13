@@ -6,6 +6,7 @@ import Index from './pages/index'
 
 import configStore from './store'
 
+import 'taro-ui/dist/style/index.scss'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -20,6 +21,9 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/home/index',
+      'pages/order/index',
+      'pages/mine/index',
       'pages/index/index'
     ],
     window: {
@@ -27,6 +31,33 @@ class App extends Component {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: "#666",
+      selectedColor: "#b4282d",
+      backgroundColor: "#fafafa",
+      borderStyle: 'black',
+      list: [{
+        pagePath: "pages/home/index",
+        iconPath: "./assets/tab-bar/home.png",
+        selectedIconPath: "./assets/tab-bar/home-active.png",
+        text: "首页"
+      }, {
+        pagePath: "pages/order/index",
+        iconPath: "./assets/tab-bar/order.png",
+        selectedIconPath: "./assets/tab-bar/order-active.png",
+        text: "订单"
+      }, {
+        pagePath: "pages/mine/index",
+        iconPath: "./assets/tab-bar/mine.png",
+        selectedIconPath: "./assets/tab-bar/mine-active.png",
+        text: "我的"
+      }, {
+        pagePath: "pages/index/index",
+        iconPath: "./assets/tab-bar/user.png",
+        selectedIconPath: "./assets/tab-bar/user-active.png",
+        text: "测试"
+      }]
     }
   }
 

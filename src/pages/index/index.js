@@ -3,6 +3,7 @@ import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 
 import { add, minus, asyncAdd } from '../../actions/counter'
+import { GET } from '@utils/request'
 
 import './index.scss'
 
@@ -26,8 +27,10 @@ class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+  async componentWillReceiveProps (nextProps) {
+    // console.log(this.props, nextProps)
+    let data = await GET('/seller/list')
+    console.log('/seller/list', data)
   }
 
   componentWillUnmount () { }

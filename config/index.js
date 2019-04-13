@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'ele-taro',
   date: '2019-4-12',
@@ -25,6 +27,14 @@ const config = {
     }
   },
   defineConstants: {
+  },
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src'),
+    '@assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@components': path.resolve(__dirname, '..', 'src/components'),
+    '@pages': path.resolve(__dirname, '..', 'src/pages'),
+    '@utils': path.resolve(__dirname, '..', 'src/utils'),
+    '@api': path.resolve(__dirname, '..', 'src/api'),
   },
   copy: {
     patterns: [
@@ -70,6 +80,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['taro-ui'],
     module: {
       postcss: {
         autoprefixer: {
