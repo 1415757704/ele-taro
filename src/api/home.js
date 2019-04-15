@@ -1,11 +1,9 @@
 import { GET } from '@utils/request'
-
-const BASE_API = 'http://localhost:3000'
-const OUTSIDE_API = 'https://elm.cangdu.org'
+import { API } from '@constants/status'
 
 // 商品分类列表
 export const getCategoryList =  async function getCategoryList() {
-	let data = await GET(`${OUTSIDE_API}/v2/index_entry`, {
+	let data = await GET(`${API.OUTSIDE_API}/v2/index_entry`, {
 		data: {
 			'group_type': 1,
 			'flags[]': 'F'
@@ -17,6 +15,6 @@ export const getCategoryList =  async function getCategoryList() {
 export const getNearbySellerList = async function getNearbySellerList() {
 	let {data :{
 		list
-	}} = await GET(`${BASE_API}/seller/list`)
+	}} = await GET(`${API.BASE_API}/seller/list`)
 	return list
 }

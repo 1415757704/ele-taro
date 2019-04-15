@@ -1,0 +1,18 @@
+.seller-detail-wrapper{
+	height: 100%;
+	.food-wrapper{
+		position: absolute;
+		top: 240px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		overflow: hidden;
+		.menu-list{
+			width: 180px;
+		}
+		.food-list{
+			flex: 1;
+		}
+	}
+}

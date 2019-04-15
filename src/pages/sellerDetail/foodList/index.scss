@@ -1,0 +1,36 @@
+.food-list-wrapper{
+	flex: 1;
+	height: 100%;
+	overflow: scroll;
+	.food-container{
+		display: flex;
+		padding: 10px;
+		.food-image{
+			width: 120px;
+			height: 120px;
+		}
+		.message-wrapper{
+			flex: 1;
+			.name{
+				font-size: 24px;
+			}
+			.desc-wrapper{
+				font-size: 20px;
+				color: #999;
+				.num{}
+				.good-rate{}
+			}
+			.price-wrapper{
+				.current-price{
+					color: #f60;
+    				font-weight: 600;
+				}
+				.old-price{
+					font-size: 20px;
+					color: #999;
+					text-decoration:line-through;
+				}
+			}
+		}
+	}
+}

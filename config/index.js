@@ -35,6 +35,8 @@ const config = {
     '@pages': path.resolve(__dirname, '..', 'src/pages'),
     '@utils': path.resolve(__dirname, '..', 'src/utils'),
     '@api': path.resolve(__dirname, '..', 'src/api'),
+    '@constants': path.resolve(__dirname, '..', 'src/constants'),
+    '@actions': path.resolve(__dirname, '..', 'src/actions'),
   },
   copy: {
     patterns: [

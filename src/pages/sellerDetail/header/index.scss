@@ -1,0 +1,36 @@
+.header-wrapper{
+	position: relative;
+	overflow: hidden;
+	-webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+	.bg-image{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: -1;
+		filter: blur(10px);
+	}
+	.content{
+		display: flex;
+		padding: 60px 20px 40px 20px;
+		color: #ffffff;
+		background-color: rgba(119, 103, 137, 0.43);
+		.avatar{
+			width: 140px;
+			height: 140px;
+		}
+		.desc-wrapper{
+			flex: 1;
+			.seller-name{
+				font-size: 34px;
+			}
+			.delivery-wrapper{
+				font-size: 24px;
+			}
+			.announcement{
+				font-size: 24px;
+			}
+		}
+	}
+}

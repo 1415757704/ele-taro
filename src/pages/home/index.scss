@@ -2,7 +2,6 @@
 	-webkit-tap-highlight-color: transparent;
 	-webkit-font-smoothing: antialiased;
 	.category-wrapper{
-		height: auto;
 		margin: 10px 0 25px 0;
 		font-size: 0;
 		&.swiper-container{
@@ -61,11 +60,11 @@
 				.message-wrapper{
 					flex: 1;
 					.name-wrapper{
-						font-size: 3px;
+						font-size: 22px;
 						color: #333;
 						.icon{
-							padding: 5px;
-							margin-right: 5px;
+							padding: 3px;
+							margin-right: 10px;
 						    background-color: #ffd930;
 						    border-radius: 9px;
 						}

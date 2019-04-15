@@ -24,7 +24,8 @@ class App extends Component {
       'pages/home/index',
       'pages/order/index',
       'pages/mine/index',
-      'pages/index/index'
+      'pages/index/index',
+      'pages/sellerDetail/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -58,6 +59,9 @@ class App extends Component {
         selectedIconPath: "./assets/tab-bar/user-active.png",
         text: "测试"
       }]
+    },
+    globalData: {
+      data: '1'
     }
   }
 

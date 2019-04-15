@@ -5,3 +5,10 @@ export const HTTP_STATUS = {
   NOT_FOUND_ERR: 404,
   BAD_GATEWAY: 502
 }
+
+export const API = {
+	IMAGE_PATH: 'http://162.168.1.91:3000/',
+	BASE_API: 'http://162.168.1.91:3000',
+	OUTSIDE_API: 'https://elm.cangdu.org',
+	OUTSIDE_IMAGE: 'https://fuss10.elemecdn.com/'
+}
