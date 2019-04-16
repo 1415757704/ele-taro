@@ -21,11 +21,15 @@
 				.good-rate{}
 			}
 			.price-wrapper{
+				height: 28px;
+				line-height: 28px;
 				.current-price{
+					font-size: 28px;
 					color: #f60;
     				font-weight: 600;
 				}
 				.old-price{
+					margin-left: 10px;
 					font-size: 20px;
 					color: #999;
 					text-decoration:line-through;

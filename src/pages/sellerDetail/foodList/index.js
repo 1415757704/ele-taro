@@ -14,6 +14,10 @@ class FoodList extends Component {
 		foodList: ['']
 	}
 
+	goToFoodDetail (food) {
+		console.log('FoodList', food)
+	}
+
 	render () {
 		const foodList = this.props.sellerDetail.selectedFoodList
 
@@ -22,7 +26,7 @@ class FoodList extends Component {
 				{
 					foodList.map(food => {
 						return (
-							<View className='food-container'>
+							<View className='food-container' onClick={this.goToFoodDetail.bind(this, food)}>
 								<Image src={food['avatar'] && API.IMAGE_PATH + food['avatar']} className='food-image'></Image>
 								<View className='message-wrapper'>
 									<View className='name'>{food.name}</View>
