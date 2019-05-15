@@ -20,7 +20,7 @@ class MenuList extends Component {
 				{
 					menuList.map(menu => {
 						return (
-							<View className='menu'>
+							<View className='menu' key={menu.id}>
 								{menu.description}
 							</View>
 						)

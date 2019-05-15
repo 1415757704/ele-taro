@@ -1,0 +1,62 @@
+.order-confirm-wrapper{
+	background: #f3f3f3;
+	height: 100%;
+	.order-time-wrapper{
+		display: flex;
+		height: 70px;
+	    line-height: 70px;
+	    padding: 20px;
+	    background: #ffffff;
+	    font-size: 22px;
+		.text{
+			flex: 1
+		}
+		.time{
+			color: #93999f;
+		}
+	}
+	.food-list-wrapper{
+		margin-top: 20px;
+		background: #ffffff;
+		.title{
+			height: 60px;
+		    line-height: 60px;
+		    padding-left: 20px;
+		    font-size: 12px;
+		    color: #93999f;
+		    border-bottom: 1px solid #efebeb;
+		}
+		.food-list{
+			.food{
+				display: flex;
+			    -webkit-box-align: center;
+			    -ms-flex-align: center;
+			    align-items: center;
+			    height: 100px;
+			    padding: 20px;
+				.food-image{
+					width: 60px;
+					height: 60px;
+				}
+				.message-wrapper{
+					flex: 1;
+					margin-left: 20px;
+					font-size: 26px;
+					.message{
+						display: flex;
+						.name{
+							flex: 1;
+							font-size: 28px;
+						}
+						.price{
+							color: red;
+						}
+					}
+					.num{
+						color: #93999f;
+					}
+				}
+			}
+		}
+	}
+}

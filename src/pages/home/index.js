@@ -2,7 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
 import { View, Button, Swiper, SwiperItem, Text, Image } from '@tarojs/components'
 import { AtSearchBar } from 'taro-ui'
-import { asyncGetCategoryList, asyncGetNearbySellerList } from '@actions/home'
+import { asyncGetCategoryList, asyncGetNearbySellerList, setCurrentSeller } from '@actions/home'
 import { getCategoryList, getNearbySellerList} from '@api/home.js'
 import { API } from '@constants/status' 
 import './index.scss'
@@ -15,6 +15,9 @@ import './index.scss'
   },
   asyncGetNearbySellerList () {
   	dispatch(asyncGetNearbySellerList())
+  },
+  setCurrentSeller (seller) {
+  	dispatch(setCurrentSeller(seller))
   }
 }))
 class Home extends Component {
@@ -36,6 +39,8 @@ class Home extends Component {
 			sellerId,
 			seller
 		}
+		// 设置当前点击的商家
+		this.props.setCurrentSeller(seller)
 		Taro.navigateTo({
         	url: `/pages/sellerDetail/index?data=${JSON.stringify(params)}`
       	})
@@ -64,7 +69,7 @@ class Home extends Component {
 								isSwiperItem = true
 							}
 							return isSwiperItem ? (
-								<SwiperItem>
+								<SwiperItem key={parentIndex.id}>
 									{
 										categoryList.map((item, index) => {
 											let isCurrentPage = false
@@ -72,7 +77,7 @@ class Home extends Component {
 						    					isCurrentPage = true
 						 					}
 						 					return isCurrentPage ? (
-						    					<View className='category-item'>
+						    					<View className='category-item' key={item.id}>
 						    						<Image className='pic' src={API.OUTSIDE_IMAGE + item.image_url} />
 						    						<View className='desc'>{item.title}</View>
 						    					</View>
@@ -94,7 +99,7 @@ class Home extends Component {
 	      				{
 	      					nearbySellerList.map((seller, index) => {
 	      						return (
-	      							<View className='seller-wrapper' onClick={this.goToSeller.bind(this, seller.id, seller)}>
+	      							<View className='seller-wrapper' onClick={this.goToSeller.bind(this, seller.id, seller)} key={seller.id}>
 	      								<Image src={ API.IMAGE_PATH + seller['avatar'] } className='avatar'></Image>
 	      								<View className='message-wrapper'>
 	      									<View className='name-wrapper'>

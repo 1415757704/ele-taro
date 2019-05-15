@@ -1,8 +1,9 @@
-import { GETCATEGORYLIST, GETNEARBYSELLERLIST } from '@constants/home.js'
+import { GETCATEGORYLIST, GETNEARBYSELLERLIST, SETCURRENTSELLER } from '@constants/home.js'
 
 const HOME_STATE = {
 	categoryList: [],
-	nearbySellerList: []
+	nearbySellerList: [],
+	currentSeller: ''
 }
 
 export default function HOME(state = HOME_STATE, action) {
@@ -16,7 +17,12 @@ export default function HOME(state = HOME_STATE, action) {
 			return {
 				...state,
 				nearbySellerList: action.data
-			}	
+			}
+		case SETCURRENTSELLER: 
+			return {
+				...state,
+				currentSeller: action.data
+			}
 		default:
 			return state
 	}

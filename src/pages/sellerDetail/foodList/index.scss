@@ -3,6 +3,7 @@
 	height: 100%;
 	overflow: scroll;
 	.food-container{
+		position: relative;
 		display: flex;
 		padding: 10px;
 		.food-image{
@@ -35,6 +36,11 @@
 					text-decoration:line-through;
 				}
 			}
+		}
+		.controller-wrapper{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
 		}
 	}
 }

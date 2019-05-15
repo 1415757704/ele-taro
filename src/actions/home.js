@@ -1,4 +1,4 @@
-import { GETCATEGORYLIST, GETNEARBYSELLERLIST } from '@constants/home.js'
+import { GETCATEGORYLIST, GETNEARBYSELLERLIST, SETCURRENTSELLER } from '@constants/home.js'
 import { getCategoryList, getNearbySellerList} from '@api/home.js'
 
 const setCategoryList = (categoryList) => {
@@ -12,6 +12,13 @@ const setNearbySellerList = (nearbySellerList) => {
 	return {
 		type: GETNEARBYSELLERLIST,
 		data: nearbySellerList
+	}
+}
+
+export const setCurrentSeller = (seller) => {
+	return {
+		type: SETCURRENTSELLER,
+		data: seller
 	}
 }
 

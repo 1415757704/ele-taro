@@ -21,11 +21,16 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/authenticate/index',
+      'pages/orderConfirm/address/list/index',
+      'pages/orderConfirm/address/edit/index',
       'pages/home/index',
       'pages/order/index',
       'pages/mine/index',
       'pages/index/index',
-      'pages/sellerDetail/index'
+      'pages/sellerDetail/index',
+      'pages/orderConfirm/index',
+      'pages/orderConfirm/address/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -59,9 +64,6 @@ class App extends Component {
         selectedIconPath: "./assets/tab-bar/user-active.png",
         text: "测试"
       }]
-    },
-    globalData: {
-      data: '1'
     }
   }
 

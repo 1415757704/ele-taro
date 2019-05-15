@@ -12,6 +12,7 @@ export const GET = async function(url, options) {
 }
 
 export const POST = async function (url, options) {
+	options.method = 'POST'
 	let data = await fetch(url, options)
 	return data
 }

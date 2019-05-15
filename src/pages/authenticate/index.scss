@@ -1,0 +1,53 @@
+.authenticate-wrapper{
+	position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+	.wrapper{
+		position: relative;
+		display: flex;
+		align-items: center;
+		height: 100px;
+		margin: 0 20px;
+		line-height: 100px;
+		border-bottom: 1px solid #e6e6e6;
+		.icon{
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			&.phone{
+				background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABb0lEQVRYR+2XMUvDQBTH/3+aQXEqSLcKBUHRIfTu8FM4SEFBBHFzKLgp2F2oq4iTS8FBQVHwY5gL6aBYHLo4Cp1Eh8iTgIKWVEtaC8LdePde3i+/cOE9osdqt9tjnU5nSURmALBX3C/7QrKVz+evSqXSa1ps6oObzeZEHMcRgOmMhbvTHgqFgl8sFl+6D1IBrLUrAM5EpK61rpGULCAiwjAM9wFsk1xWSp33C1AFcAigorW+zFL8M8daWwFwISJVY8yRA3AGnAFnwBlwBpwBZ8AZ+HcGBmkHv+Vm6glF5Jbk0yAUIjJJcj4TwE9dsYh41trFBE5rfU3yLQ30z7pia20NwF5SVER2jTH1kQIEQdAguf4B0DDGbIwUIIqihTiOjwHEuVxus1wu3wwTYA3AyZBGs+TT7JBcVUqd9vUfCIJgCsA9yfFBbsCX3GfP82Z933/sCyAJCsNwTkS2kvGcZKbxXJLplGyRPFBK3aW9zDsqKL8wt44UYgAAAABJRU5ErkJggg==') no-repeat;
+				background-size: 100% 100%;
+			}
+			&.password{
+				background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACn0lEQVRYR+2WP2gUQRTGv29ismIhEpE0EoOISrgjtzubBBUE/yCITRoLGxULC0uViIWgYKGkE3tNp4WlEhCFICiamdszJh56yBkRYpCInAYOz9snKzkIkuR2k8Nr8qqBeTPfb74Z3jyiycEm6yMxgIioIAjOhmF4EEAawDaSkwDekBz2PG80yaESAeTz+c1zc3MPSfYDCEXkBcnfItJOMoKJ4rbjOBdSqdSvOCCxAYIg2FStViPB3QAeKKUuu65bqIkYY44AuEVyF4A7WuszDQUwxjwleQDAVa31tcU2n5iYaCuXyyPzefu11s/qQcRywFob3fcTAPe01ieW23R8fHx7pVLJi8io7/uRK8tGLABjzF2Sp5RSOxfavtTO1tr7AI4rpdpd1/2+HEEsAGvtmIh0+L7fWe9E0bwx5iLJoZaWlv5MJvOqEQBFAF+11n1xAKy1p6OHCOCo1npk1QDGmCmSM0kBlFLHXNd9tAaw5kBiB7LZ7JYwDKPPpSPOq6+XIyLfHMfpTqfTM//mLloHcrlcX7VafSkij0k+B7CBZFlEwnpiC+Y3AigB2AfgsFKqz3XdsUQAAAa11kPW2h1Kqa0iIkm/W2vtIICbqwIwxrwjOS0iP7XWA9EXHNeJhgBYa99qrbvjii7MWwNolAM5rXWmaVdgjOn0ff9T0wCstf/XgSAIesMwjBqJv3UgCIIu13U/rsYBkr2e55lYhSibzXaLyKSIXPd9/8pKhGtrao+QZMbzvNexAIrF4vrZ2dkfJN87jnMolUp9WSmEMeYGyUskuzzPm4oFMN/XDZM8GY1FZBrAB5LVhCBtAPYAyC9VyJZsSguFglMqlc4BGBCRvSTXJREXkQqAAMBUa2vr+Z6ens+LrY/VFScRTprbdIA/CneYMH2HqT0AAAAASUVORK5CYII=') no-repeat;
+				background-size: 100% 100%; 
+			}
+		}
+		.input{
+			display: inline-block;
+			flex: 1;
+			margin-left: 10px;
+			font-size: 30px;
+		}
+		&.visiably {
+			display: inherit;
+		}
+		&.hidden{
+			display: none;
+		}
+	}
+	.authenticate-btn{
+		margin: 40px 40px;
+		height: 80px;
+		line-height: 80px;
+		font-size: 40px;
+		text-align: center;
+		border-radius: 40px;
+		color: #ffffff;
+		background: #e6e6e6;
+	}
+}
