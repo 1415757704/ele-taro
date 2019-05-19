@@ -32,6 +32,12 @@ class AddressList extends Component {
 		})
 	}
 
+	addAddress () {
+		Taro.navigateTo({
+			url: `/pages/orderConfirm/address/edit/index`
+		})
+	}
+
 	render () {
 
 		const {
@@ -45,10 +51,13 @@ class AddressList extends Component {
 				{
 					addressList.map(address => {
 						return (
-							<Address address={ address } isEditAble={ true }></Address>
+							<Address address={ address } isSelectedAble = { true } isEditAble={ true }></Address>
 						)
 					})
 				}
+				<View className='add-address-wrapper' onClick={ this.addAddress.bind(this) }>
+					+ 添加新收货地址
+				</View>
 			</View>
 		)
 	}

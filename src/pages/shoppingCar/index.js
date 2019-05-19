@@ -3,6 +3,7 @@ import { connect } from '@tarojs/redux'
 import { View, Image } from '@tarojs/components'
 import ShoppingCarController from '@components/ShoppingCarController/index'
 import { addFood, descFood, clearFood } from '@actions/shoppingCar'
+import Tools from '@/utils/tools.js'
 import './index.scss'
 
 @connect(({ shoppingCar, home }) => ({
@@ -95,7 +96,7 @@ class ShoppingCar extends Component {
 		let { currentSeller } = this.props.home
 		let deliveryFee = currentSeller['delivery_fee']
 		foodList.forEach(food => {
-			count += food['present_price'] * food['num']
+			count += Tools.floatNumberOperator.mul(food['present_price'], food['num'])
 		})
 		return count !== 0 ? count + deliveryFee : count
 	}

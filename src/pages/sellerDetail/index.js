@@ -31,7 +31,7 @@ class SellerDetail extends Component {
 	componentDidMount () {
 
 		let { data } = this.$router.params
-		data  = JSON.parse(data)
+		data  = JSON.parse(decodeURI(data))
 		this.setState({
 			seller: data.seller
 		})

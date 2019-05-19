@@ -7,8 +7,8 @@ export const HTTP_STATUS = {
 }
 
 export const API = {
-	IMAGE_PATH: 'http://162.168.1.124:3000/',
-	BASE_API: 'http://162.168.1.124:3000',
+	IMAGE_PATH: 'http://10.79.98.123:3000/',
+	BASE_API: 'http://10.79.98.123:3000',
 	OUTSIDE_API: 'https://elm.cangdu.org',
 	OUTSIDE_IMAGE: 'https://fuss10.elemecdn.com/'
 }

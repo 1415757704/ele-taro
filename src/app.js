@@ -29,8 +29,7 @@ class App extends Component {
       'pages/mine/index',
       'pages/index/index',
       'pages/sellerDetail/index',
-      'pages/orderConfirm/index',
-      'pages/orderConfirm/address/index'
+      'pages/orderConfirm/index'
     ],
     window: {
       backgroundTextStyle: 'light',

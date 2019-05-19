@@ -2,16 +2,20 @@ import Taro, { Component } from '@tarojs/taro'
 import { connect } from '@tarojs/redux'
 import { View, Image } from '@tarojs/components'
 import Address from './address/index'
-import { asyncGetAddressList } from '@actions/address.js'
+import { asyncGetAddressList, updateSelectedAddress } from '@actions/address.js'
+import Tools from '@/utils/tools.js'
 import './index.scss'
 
-@connect(({ address, authenticate }) => ({
-  address, authenticate
+@connect(({ address, authenticate, shoppingCar, home }) => ({
+  address, authenticate, shoppingCar, home
 }), (dispatch) => ({
   asyncGetAddressList (options) {
     return dispatch(asyncGetAddressList(options)).then((data) => {
     	return data
     })
+  }, 
+  updateSelectedAddress (options) {
+  	dispatch(updateSelectedAddress(options))
   }
 }))
 class OrderConfirm extends Component {
@@ -43,15 +47,31 @@ class OrderConfirm extends Component {
 			this.setState({
 				addressList
 			}, () => {
-				console.log('1...', this.state.addressList)
+				// 看当前是否有选中收货地址，没有则使用默认
+				if (!this.props.address.develeryAddressIndex) {
+					this.props.updateSelectedAddress({ address: this.state.addressList[0] })
+				}
 			})
 		})
+	}
+
+	calculatorAllPrice () {
+		let allPrice = 0
+		this.props.shoppingCar.foodList.forEach(food => {
+			allPrice = Tools.floatNumberOperator.add(Tools.floatNumberOperator.mul(food.present_price, food.num), allPrice)
+		})
+		allPrice = Tools.floatNumberOperator.add(allPrice, this.props.home.currentSeller.delivery_fee)
+		return allPrice
+	}
+
+	deliveryAddress () {
+		let { addressList } = this.state
 	}
 
 	render () {
 		return (
 			<View className='order-confirm-wrapper'>
-				<Address address={ this.state.addressList && this.state.addressList[0] } isEditAble={ false }></Address>
+				<Address address={ this.props.address.develeryAddressIndex } isEditAble={ false }></Address>
 				<View className='order-time-wrapper'>
 					<View className='text'>立即送出</View>
 					<View className='time'>大约11：51送达</View>
@@ -59,17 +79,30 @@ class OrderConfirm extends Component {
 				<View className='food-list-wrapper'>
 					<View className='title'>name</View>
 					<View className='food-list'>
-						<View className='food'>
-							<Image className='food-image'></Image>
-							<View className='message-wrapper'>
-								<View className='message'>
-									<View className='name'>food-name</View>
-									<View className='price'>46.64</View>
-								</View>
-								<View className='num'>x2</View>
-							</View>
-						</View>
+						{
+							this.props.shoppingCar.foodList.map(food => {
+								return (
+									<View className='food'>
+										<Image className='food-image'></Image>
+										<View className='message-wrapper'>
+											<View className='message'>
+												<View className='name'>{ food.name }</View>
+												<View className='price'>
+													{ Tools.floatNumberOperator.add(Tools.floatNumberOperator.mul(food.present_price, food.num), this.props.home.currentSeller.delivery_fee) }
+												</View>
+											</View>
+											<View className='num'>x{ food.num }</View>
+										</View>
+									</View>
+								)
+							})
+						}
+						
 					</View>
+				</View>
+				<View className='operator-wrapper'>
+					<View className='price-wrapper'>订单总金额：{ this.calculatorAllPrice() }</View>
+					<View className='confirm-btn'>提交订单</View>
 				</View>
 			</View>
 		)

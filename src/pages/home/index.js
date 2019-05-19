@@ -42,7 +42,7 @@ class Home extends Component {
 		// 设置当前点击的商家
 		this.props.setCurrentSeller(seller)
 		Taro.navigateTo({
-        	url: `/pages/sellerDetail/index?data=${JSON.stringify(params)}`
+        	url: `/pages/sellerDetail/index?data=${encodeURI(JSON.stringify(params))}`
       	})
 	}
 
