@@ -1,4 +1,4 @@
-import { ADD_FOOD, DESC_FOOD, CLEAR_FOOD } from '@constants/shppingCar'
+import { ADD_FOOD, DESC_FOOD, CLEAR_FOOD, SETCURRENTSELLERID } from '@constants/shppingCar'
 
 const SHOPPINGCAR_STATE = {
 	foodList: [] // 购物车中的商品
@@ -24,6 +24,11 @@ export default function SELLERDETAIL(state = SHOPPINGCAR_STATE, action) {
 				...state,
 				foodList: []
 			}	
+		case SETCURRENTSELLERID:
+	      return {
+	        ...state,
+	        sellerId: action.data
+	      }	
 		default:
 			return state
 	}

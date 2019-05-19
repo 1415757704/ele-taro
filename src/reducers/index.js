@@ -5,6 +5,7 @@ import sellerDetail from './sellerDetail'
 import shoppingCar from './shoppingCar'
 import authenticate from './authenticate'
 import address from './address'
+import order from './order'
 
 export default combineReducers({
   counter,
@@ -12,5 +13,6 @@ export default combineReducers({
   sellerDetail,
   shoppingCar,
   authenticate,
-  address
+  address,
+  order
 })

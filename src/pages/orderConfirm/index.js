@@ -3,6 +3,7 @@ import { connect } from '@tarojs/redux'
 import { View, Image } from '@tarojs/components'
 import Address from './address/index'
 import { asyncGetAddressList, updateSelectedAddress } from '@actions/address.js'
+import { asyncSaveOrder } from '@actions/order.js'
 import Tools from '@/utils/tools.js'
 import './index.scss'
 
@@ -16,6 +17,11 @@ import './index.scss'
   }, 
   updateSelectedAddress (options) {
   	dispatch(updateSelectedAddress(options))
+  },
+  asyncSaveOrder (options) {
+  	return dispatch(asyncSaveOrder(options)).then((data) => {
+  		return data
+  	})
   }
 }))
 class OrderConfirm extends Component {
@@ -68,6 +74,17 @@ class OrderConfirm extends Component {
 		let { addressList } = this.state
 	}
 
+	orderConfirm () {
+		this.props.asyncSaveOrder({
+			phone: this.props.authenticate.userInfo.phone,
+			sellerId: this.props.shoppingCar.sellerId,
+			food: this.props.shoppingCar.foodList,
+			address: this.props.address.develeryAddressIndex
+		}).then((data) => {
+			console.log('orderConfirm success...', data)
+		})
+	}
+
 	render () {
 		return (
 			<View className='order-confirm-wrapper'>
@@ -102,7 +119,7 @@ class OrderConfirm extends Component {
 				</View>
 				<View className='operator-wrapper'>
 					<View className='price-wrapper'>订单总金额：{ this.calculatorAllPrice() }</View>
-					<View className='confirm-btn'>提交订单</View>
+					<View className='confirm-btn' onClick={ this.orderConfirm.bind(this) }>提交订单</View>
 				</View>
 			</View>
 		)

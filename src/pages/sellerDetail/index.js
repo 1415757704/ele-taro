@@ -3,6 +3,7 @@ import { View, Image } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { AtTabs, AtTabsPane } from 'taro-ui'
 import { asyncGetMenuList } from '@actions/sellerDetail.js'
+import { setCurrentSellerId } from '@actions/shoppingCar.js'
 import SellerDetailHeader from './header/index.js'
 import MenuList from './menuList/index'
 import FoodList from './foodList/index'
@@ -15,6 +16,9 @@ import './index.scss'
 }), (dispatch) => ({
   asyncGetMenuList (options) {
     dispatch(asyncGetMenuList(options))
+  },
+  setCurrentSellerId (options) {
+  	dispatch(setCurrentSellerId(options))
   }
 }))
 class SellerDetail extends Component {
@@ -40,6 +44,8 @@ class SellerDetail extends Component {
 			url: '/seller/menu/list',
 			sellerId: data.sellerId
 		})
+
+		this.props.setCurrentSellerId(data.sellerId)
 	}
 
 	handleClick (value) {
